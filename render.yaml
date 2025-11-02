@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: emotion-detection-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 1 -b 0.0.0.0:$PORT run:app --timeout 300 --worker-class sync --max-requests 100 --max-requests-jitter 10 --log-level info --preload
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 10000
