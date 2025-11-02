@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python311", "libGL", "glib", "libxext", "libsm", "libxrender", "sqlite.out"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[start]
+cmd = "gunicorn -w 1 -b 0.0.0.0:$PORT run:app --timeout 300 --worker-class sync --max-requests 100 --max-requests-jitter 10 --log-level info --preload"
