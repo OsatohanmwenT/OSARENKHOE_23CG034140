@@ -6,5 +6,6 @@ Pillow
 scikit-learn
 joblib
 Werkzeug
+gunicorn
 matplotlib
 seaborn
