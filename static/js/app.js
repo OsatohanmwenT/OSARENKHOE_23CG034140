@@ -124,8 +124,6 @@ async function analyzeImage() {
     // Create form data
     const formData = new FormData();
     formData.append("image", selectedFile);
-    formData.append("name", name);
-    formData.append("email", email);
 
     // Send request
     const response = await fetch("/api/detect", {
